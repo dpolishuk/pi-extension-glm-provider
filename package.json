@@ -1,0 +1,17 @@
+{
+  "name": "pi-extension-glm-provider",
+  "version": "1.0.0",
+  "description": "Zhipu AI (GLM) provider extension for pi coding agent",
+  "type": "module",
+  "keywords": ["pi-package"],
+  "pi": {
+    "extensions": [
+      "./extensions/glm-provider.ts"
+    ]
+  },
+  "scripts": {
+    "clean": "echo 'nothing to clean'",
+    "build": "echo 'nothing to build'",
+    "check": "echo 'nothing to check'"
+  }
+}
