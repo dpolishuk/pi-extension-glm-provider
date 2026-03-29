@@ -61,6 +61,8 @@ The extension is defined in `extensions/glm-provider.ts`. You can modify the cos
 
 | Model | ID | Context Window | Reasoning |
 |-------|----|----------------|-----------|
+| GLM-5 | `glm-5` | 200k | Yes |
+| GLM-5.1 | `glm-5.1` | 200k | Yes |
 | GLM-4 Plus | `glm-4-plus` | 128k | Yes |
 | GLM-4 Air | `glm-4-air` | 128k | Yes |
 | GLM-4 Flash | `glm-4-flash` | 128k | Yes |
