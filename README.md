@@ -13,8 +13,10 @@ This extension adds Zhipu AI (GLM) models to the [pi coding agent](https://githu
 ## Prerequisites
 
 1. Obtain an API Key from [Z.AI](https://z.ai/).
-2. Set the API key in your environment:
+2. Set the API key in your environment (any one of these):
    ```bash
+   export ZAI_API_KEY=your-api-key-here
+   # or
    export GLM_API_KEY=your-api-key-here
    ```
 
@@ -51,10 +53,22 @@ pi --list-models | grep glm
 To use a specific GLM model:
 
 ```bash
-pi --model glm/glm-4.7
+pi --model zai/glm-4.7
 ```
 
 In interactive mode, you can switch models with `/model` or `Ctrl+L`.
+
+## Login + auth
+
+You can authenticate this provider via interactive login:
+
+1. In `pi` interactive mode, run `/login`.
+2. Select **Z.AI** from the provider list.
+3. Paste your API key when prompted.
+
+The stored key is written to `~/.pi/agent/auth.json`.
+
+If you prefer env var auth, set `ZAI_API_KEY` (or `GLM_API_KEY`) before launching `pi`.
 
 ## Configuration
 

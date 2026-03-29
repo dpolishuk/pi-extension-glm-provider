@@ -34,11 +34,15 @@ function parseNumberInBlock(block, key) {
   return match ? Number(match[1]) : NaN;
 }
 
-test("registers glm provider config", () => {
-  assert.ok(source.includes('pi.registerProvider("glm", {'));
+test("registers zai provider config", () => {
+  assert.ok(source.includes('pi.registerProvider("zai", {'));
   assert.ok(source.includes('baseUrl: "https://api.z.ai/api/coding/paas/v4"'));
   assert.ok(source.includes('api: "openai-completions"'));
-  assert.ok(source.includes('apiKey: "GLM_API_KEY"'));
+  assert.ok(source.includes('apiKey: "ZAI_API_KEY"'));
+  assert.ok(source.includes('oauth: {'));
+  assert.ok(source.includes('name: "Z.AI"'));
+  assert.ok(source.includes('callbacks.onPrompt'));
+  assert.ok(source.includes('getApiKey(credentials)'));
 });
 
 test("registers exactly expected GLM models", () => {

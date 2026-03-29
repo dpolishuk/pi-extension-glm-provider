@@ -26,9 +26,9 @@ const glmModel = (
 });
 
 export default function (pi: ExtensionAPI) {
-  pi.registerProvider("glm", {
+  pi.registerProvider("zai", {
     baseUrl: "https://api.z.ai/api/coding/paas/v4",
-    apiKey: "GLM_API_KEY",
+    apiKey: "ZAI_API_KEY",
     api: "openai-completions",
     models: [
       glmModel("glm-5", "GLM-5", {
@@ -57,5 +57,24 @@ export default function (pi: ExtensionAPI) {
         cost: { input: 1, output: 1, cacheRead: 0, cacheWrite: 0 },
       }),
     ],
+    oauth: {
+      name: "Z.AI",
+      async login(callbacks) {
+        const key = await callbacks.onPrompt({
+          message: "Enter your Z.AI API key (stored for this profile):",
+        });
+        return {
+          refresh: key,
+          access: key,
+          expires: Date.now() + 365 * 24 * 60 * 60 * 1000,
+        };
+      },
+      async refreshToken(credentials) {
+        return credentials;
+      },
+      getApiKey(credentials) {
+        return credentials.access;
+      },
+    },
   });
 }
