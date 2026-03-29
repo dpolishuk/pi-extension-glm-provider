@@ -1,21 +1,22 @@
 # Pi Extension: GLM Provider
 
-This extension adds Zhipu AI (GLM) models to the [pi coding agent](https://github.com/badlogic/pi-mono). It supports GLM-4 and GLM-4V models with reasoning capabilities using the official BigModel (PAAS) endpoint.
+This extension adds Zhipu AI (GLM) models to the [pi coding agent](https://github.com/badlogic/pi-mono).
 
 ## Features
 
-- GLM-4 Plus, GLM-4 Air, GLM-4 Flash, GLM-4 Long, and GLM-4V Plus
-- Support for reasoning (thinking blocks)
-- Configured for the official endpoint: `https://open.bigmodel.cn/api/paas/v4/`
-- Proper mapping for `system` role and reasoning parameters.
+- Integrates OpenAI-compatible GLM models from Z.AI Coding API
+- Supports reasoning via the Z.AI `thinking` format (`openai-completions` compatibility mapping)
+- Configured for the documented Coding endpoint:
+  `https://api.z.ai/api/coding/paas/v4`
+- Proper mapping for `system` role and tool calling behavior.
 
 ## Prerequisites
 
-1.  Obtain an API Key from [BigModel PAAS](https://open.bigmodel.cn/).
-2.  Set the API key in your environment:
-    ```bash
-    export GLM_API_KEY=your-api-key-here
-    ```
+1. Obtain an API Key from [Z.AI](https://z.ai/).
+2. Set the API key in your environment:
+   ```bash
+   export GLM_API_KEY=your-api-key-here
+   ```
 
 ## Installation
 
@@ -50,7 +51,7 @@ pi --list-models | grep glm
 To use a specific GLM model:
 
 ```bash
-pi --model glm/glm-4-plus
+pi --model glm/glm-4.7
 ```
 
 In interactive mode, you can switch models with `/model` or `Ctrl+L`.
@@ -61,13 +62,13 @@ The extension is defined in `extensions/glm-provider.ts`. You can modify the cos
 
 | Model | ID | Context Window | Reasoning |
 |-------|----|----------------|-----------|
-| GLM-5 | `glm-5` | 200k | Yes |
-| GLM-5.1 | `glm-5.1` | 200k | Yes |
-| GLM-4 Plus | `glm-4-plus` | 128k | Yes |
-| GLM-4 Air | `glm-4-air` | 128k | Yes |
-| GLM-4 Flash | `glm-4-flash` | 128k | Yes |
-| GLM-4 Long | `glm-4-long` | 1M | Yes |
-| GLM-4V Plus | `glm-4v-plus` | 128k | No |
+| GLM-4.7 | `glm-4.7` | 200K | Yes |
+| GLM-4.7-Flash | `glm-4.7-flash` | 200K | Yes |
+| GLM-5 | `glm-5` | 200K | Yes |
+| GLM-5.1 | `glm-5.1` | 200K | Yes |
+| GLM-5-Turbo | `glm-5-turbo` | 200K | Yes |
+
+These are the models currently registered in this plugin (based on the docs-guided Coding API set). You can add or remove entries in `extensions/glm-provider.ts`.
 
 ## License
 
