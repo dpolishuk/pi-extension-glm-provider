@@ -24,7 +24,7 @@ This extension adds Zhipu AI (GLM) models to the [pi coding agent](https://githu
 You can install this extension directly into your `pi` configuration using the `pi install` command:
 
 ```bash
-pi install git:github.com/YOUR_USERNAME/pi-extension-glm-provider
+pi install git:github.com/dpolishuk/pi-extension-glm-provider
 ```
 
 *(Note: Replace `YOUR_USERNAME` with your actual GitHub username.)*
@@ -35,7 +35,7 @@ If you prefer to install it manually:
 
 1.  Clone this repository into your pi extensions directory:
     ```bash
-    git clone https://github.com/YOUR_USERNAME/pi-extension-glm-provider ~/.pi/agent/extensions/glm-provider
+    git clone https://github.com/dpolishuk/pi-extension-glm-provider ~/.pi/agent/extensions/glm-provider
     ```
 2.  Reload pi if it's currently running using the `/reload` command.
 
